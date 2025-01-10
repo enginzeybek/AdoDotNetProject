@@ -1,0 +1,55 @@
+﻿@model List<Book>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Kitap Listesi</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header ">
+						<h4 class="card-title">Kitaplar</h4>
+					</div>
+					<div class="card-body">
+						<table class="table table-head-bg-success table-striped table-hover">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">KİTAP İSMİ</th>
+									<th scope="col">KİTAP YAZARI</th>
+									<th scope="col">YAYINLANDIĞI YIL</th>
+									<th scope="col">KOPYA SAYISI</th>
+									<th scope="col">GÜNCELLE</th>
+									<th scope="col">SİL</th>
+								</tr>
+							</thead>
+							@foreach(var item in Model)
+							{
+								if(item != null)
+								{
+									<tbody>
+										<tr>
+											<td>@item.BookID</td>
+											<td>@item.Title</td>
+											<td>@item.Author</td>
+											<td>@item.PublicationYear</td>
+											<td>@item.AvailableCopies</td>
+											<td><a href="/Book/UpdateBook/@item.BookID" class="btn btn-primary border-5">GÜNCELLE</a></td>
+											<td><a href="/Book/DeleteBook/@item.BookID" class="btn btn-danger border-5">SİL</a></td>
+										</tr>
+									</tbody>
+								}
+							}
+						</table>
+						<div class="card-action">
+							<a class="btn btn-danger border-5" href="/Book/AddBook/">EKLE</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

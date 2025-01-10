@@ -1,0 +1,38 @@
+﻿@model Book
+@{
+    ViewData["Title"] = "UpdateBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+	<div class="card-header">
+		<div class="card-title">Kitap Ekleme Sayfası</div>
+	</div>
+	<form method="post">
+		<div class="card-body">
+			<input type="hidden" asp-for="BookID"/>
+			<div class="form-group">
+				<label for="Title">Başlık Ekle</label>
+				<input type="text" class="form-control input-square" id="Title" asp-for="Title">
+			</div>
+			<br />
+			<div class="form-group">
+				<label for="Author">Yazar Ekle</label>
+				<input type="text" class="form-control input-square" id="Author" asp-for="Author">
+			</div>
+			<br />
+			<div class="form-group">
+				<label for="PublicationYear">Yayın Yılı</label>
+				<input type="text" class="form-control input-square" id="PublicationYear" asp-for="PublicationYear">
+			</div>
+			<br />
+			<div class="form-group">
+				<label for="AvailableCopies">Kopya Sayısı</label>
+				<input type="text" class="form-control input-square" id="AvailableCopies" asp-for="AvailableCopies">
+			</div>
+		</div>
+		<div class="card-action">
+			<button class="btn btn-success" type="submit">EKLE</button>
+		</div>
+	</form>
+</div>
